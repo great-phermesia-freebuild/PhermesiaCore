@@ -1,0 +1,99 @@
+groupchat:
+  prefix: "&8[&bGC&8]&r"
+  inactivity-minutes: 60
+
+itemblock:
+  scan-interval-seconds: 5
+  gui-title: "&0Item Blacklist"
+
+religion:
+  gui-title: "&8Religions"
+  daily-prayer-cooldown-hours: 24
+
+rtp:
+  min-radius: 2000
+  max-radius: 10000
+  max-attempts: 24
+  warp-of-the-day:
+    timezone: "Europe/Brussels"
+    warps:
+      - Visby
+      - Arkavia
+      - Blue
+      - Cookieville
+      - Luminara
+      - Kazooville
+      - Egalia
+      - Orthodoksia
+      - Beeville
+      - Midnight_Hills
+      - Vortex_Heights
+      - Spruce_Gardens_South
+      - Rivermount
+      - Northernlight
+      - Pineapple_Bay
+      - Omoshiro
+      - Ostfjord
+      - Melonia
+      - Seafoam_Isles
+      - Yellingmare
+      - Falkenhayn
+      - Koyo
+      - PortUnion
+      - Zelkland
+      - Rondeland
+      - Valeronne
+      - Stellamaris
+      - Concord
+      - New_Worcester
+      - Wexfordale
+      - Aquor
+      - Vatnaland
+      - Amberia
+      - Administra
+      - traffic_signs
+      - aloquin
+
+social:
+  tp-block-prefix: "&7[&6TP&7]"
+  tp-blocked-message: "&4You aren't able to teleport to this player right now"
+  punish-prefix: "&7[&cPunish&7]"
+
+messages:
+  general:
+    no-permission: "&cYou do not have permission."
+  groupchat:
+    not-in-group: "&cYou're not in a group chat!"
+    enabled: "&aGroup chat enabled. Messages now go to your group chat."
+    disabled: "&7Group chat disabled. Messages now go to global chat."
+  itemblock:
+    removed-blacklisted-item: "&cA blacklisted item was removed from your inventory."
+  religion:
+    no-religion: "&cYou are not part of any religion."
+  rtp:
+    searching: "&aSearching for a safe location..."
+    teleported: "&aYou were teleported to a random location!"
+  social:
+    tp-blocked: "&4You aren't able to teleport to this player right now"
+
+gadgets:
+  brushes: {}
+  block-gadgets: {}
+  doors: {}
+
+groupchat-data:
+  groups: {}
+  player-groups: {}
+  toggled: []
+
+itemblock-data:
+  next-id: 1
+  entries: {}
+
+religion-data: []
+religion-players: {}
+
+social-data:
+  staffchat: {}
+  tpblock: {}
+  punishments: {}
