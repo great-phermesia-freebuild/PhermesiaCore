@@ -1,6 +1,6 @@
-name: scrutti
+name: PhermesiaCore
 version: 2.0
-main: me.greatphermesia.core.PhermesiaCorePlugin
+main: com.greatphermesia.core.PhermesiaCorePlugin
 api-version: '1.21'
 authors: [Scrutti]
 description: Features n shtuff do /info
