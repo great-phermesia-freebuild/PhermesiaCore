@@ -67,7 +67,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
-import org.bukkit.inventory.AnvilInventory;
+import org.bukkit.inventory.view.AnvilView;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -610,7 +610,7 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
 
     private void openWarpAnvil(Player player, BlockKey key) {
         pendingWarpBrushes.put(player.getUniqueId(), new PendingWarpBrush(key));
-        InventoryView view = player.openAnvil(null, true);
+        InventoryView view = player.openInventory(Bukkit.createInventory(player, InventoryType.ANVIL));
         if (view == null) {
             pendingWarpBrushes.remove(player.getUniqueId());
             player.sendMessage(ChatUtil.color("&cCould not open the warp anvil menu."));
@@ -665,8 +665,8 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
 
         String warpName = null;
         Inventory topInventory = event.getView().getTopInventory();
-        if (topInventory instanceof AnvilInventory anvilInventory) {
-            warpName = cleanWarpName(anvilInventory.getRenameText());
+        if (topInventory instanceof AnvilView anvilView) {
+            warpName = cleanWarpName(anvilView.getRenameText());
         }
 
         if (warpName == null) {
@@ -711,8 +711,8 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
 
         String timeValue = null;
         Inventory topInventory = event.getView().getTopInventory();
-        if (topInventory instanceof AnvilInventory anvilInventory) {
-            timeValue = cleanTimeValue(anvilInventory.getRenameText());
+        if (topInventory instanceof AnvilView anvilView) {
+            timeValue = cleanTimeValue(anvilView.getRenameText());
         }
 
         if (timeValue == null) {
@@ -763,7 +763,7 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
     }
 
     private void prepareWarpAnvilResult(PrepareAnvilEvent event) {
-        String warpName = cleanWarpName(event.getInventory().getRenameText());
+        String warpName = cleanWarpName(event.getView().getRenameText());
         if (warpName == null) {
             event.setResult(createItem(
                     Material.PAPER,
@@ -785,7 +785,7 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
     }
 
     private void prepareTimeAnvilResult(PrepareAnvilEvent event) {
-        String timeValue = cleanTimeValue(event.getInventory().getRenameText());
+        String timeValue = cleanTimeValue(event.getView().getRenameText());
         if (timeValue == null) {
             event.setResult(createItem(
                     Material.PAPER,
@@ -1140,7 +1140,7 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
     }
 
     private boolean canUseGadgets(Player player) {
-        return player.isOp() || player.hasPermission(PERMISSION) || player.hasPermission("group.builder");
+        return player.hasPermission(PERMISSION);
     }
 
     private void openMenu(Player player) {
