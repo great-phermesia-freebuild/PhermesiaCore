@@ -1,6 +1,6 @@
 # Scrutti++ 2.0
 
-Paper plugin for Great Phermesia server features. Use `/info` in game for the player-facing menu.
+Bukkit plugin for Great Phermesia server features. Use `/info` in game for the player-facing menu.
 
 ## Stack
 
