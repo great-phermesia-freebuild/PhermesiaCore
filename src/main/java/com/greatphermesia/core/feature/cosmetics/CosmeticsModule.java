@@ -172,9 +172,7 @@ public final class CosmeticsModule implements PluginModule, Listener, CommandExe
         switch (slot) {
             case 11 -> openTrailMenu(player);
             case 13 -> openGlowMenu(player);
-            case 15 -> {
-                openChatMenu(player);
-            }
+            case 15 -> openChatMenu(player);
             case 22 -> {
                 clearAllCosmetics(player);
                 player.playSound(player.getLocation(), Sound.BLOCK_BEACON_DEACTIVATE, 0.8f, 0.9f);
