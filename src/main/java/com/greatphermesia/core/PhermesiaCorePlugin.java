@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.greatphermesia.core.feature.worldedit.TypereplaceModule;
 import com.greatphermesia.core.feature.cosmetics.CosmeticsModule;
 import com.greatphermesia.core.feature.gadgets.GadgetsModule;
 import com.greatphermesia.core.feature.groupchat.GroupChatModule;
@@ -14,7 +13,6 @@ import com.greatphermesia.core.feature.religion.ReligionModule;
 import com.greatphermesia.core.feature.rtp.RtpModule;
 import com.greatphermesia.core.feature.social.StaffSocialModule;
 import com.greatphermesia.core.module.PluginModule;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,12 +35,6 @@ public final class PhermesiaCorePlugin extends JavaPlugin {
         modules.add(new CosmeticsModule(this));
         modules.add(new GadgetsModule(this));
         modules.add(new HelpModule(this));
-        if (Bukkit.getPluginManager().getPlugin("WorldEdit") != null
-                || Bukkit.getPluginManager().getPlugin("FastAsyncWorldEdit") != null) {
-            modules.add(new TypereplaceModule(this));
-        } else {
-            getLogger().info("[Typereplace] WorldEdit/FAWE not detected; typereplace command is disabled.");
-        }
         modules.add(new RtpModule(this));
 
         for (PluginModule module : modules) {
