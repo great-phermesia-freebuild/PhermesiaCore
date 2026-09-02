@@ -1,10 +1,10 @@
-name: scrutti
+name: PhermesiaCore
 version: 2.0
 main: com.greatphermesia.core.PhermesiaCorePlugin
 api-version: '1.21'
-authors: [Scrutti]
-description: Features n shtuff do /info
-softdepend: [Essentials, EssentialsX, floodgate, WorldEdit, FastAsyncWorldEdit]
+authors: [Scrutti, Plink]
+description: Core plugin for miscellany on the Great Phermesia server.
+softdepend: [Essentials, floodgate, WorldEdit]
 
 commands:
   help:
