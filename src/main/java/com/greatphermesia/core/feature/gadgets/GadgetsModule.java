@@ -630,7 +630,7 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
 
     private void openTimeAnvil(Player player, BlockKey key) {
         pendingTimeBrushes.put(player.getUniqueId(), new PendingTimeBrush(key));
-        InventoryView view = player.openAnvil(null, true);
+        InventoryView view = player.openInventory(Bukkit.createInventory(player, InventoryType.ANVIL));
         if (view == null) {
             pendingTimeBrushes.remove(player.getUniqueId());
             player.sendMessage(ChatUtil.color("&cCould not open the time anvil menu."));
