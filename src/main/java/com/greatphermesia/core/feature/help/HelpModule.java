@@ -88,13 +88,10 @@ public final class HelpModule implements PluginModule, Listener, CommandExecutor
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if (!(event.getInventory().getHolder() instanceof HelpHolder holder)) {
+        if (!(event.getInventory().getHolder() instanceof HelpHolder(HelpPage page))) {
             return;
         }
-        if (!(event.getWhoClicked() instanceof Player player)) {
-            return;
-        }
-
+        Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
         int slot = event.getRawSlot();
         int inventorySize = event.getInventory().getSize();
@@ -106,12 +103,12 @@ public final class HelpModule implements PluginModule, Listener, CommandExecutor
             player.closeInventory();
             return;
         }
-        if (holder.page() != HelpPage.MAIN && slot == backSlot(inventorySize)) {
+        if (page != HelpPage.MAIN && slot == backSlot(inventorySize)) {
             openMain(player);
             return;
         }
 
-        switch (holder.page()) {
+        switch (page) {
             case MAIN -> handleMainClick(player, slot);
             case RANKS -> handleRanksClick(player, slot);
             case TOOLS -> handleToolsClick(player, slot);
