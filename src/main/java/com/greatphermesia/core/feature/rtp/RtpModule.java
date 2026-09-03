@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.greatphermesia.core.PhermesiaCorePlugin;
 import com.greatphermesia.core.module.PluginModule;
 import com.greatphermesia.core.util.ChatUtil;
@@ -36,47 +38,15 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import com.earth2me.essentials.Essentials;
 
 public final class RtpModule implements PluginModule, Listener, CommandExecutor {
 
-    private static final List<String> DEFAULT_WARP_OF_THE_DAY_WARPS = List.of(
-            "Visby",
-            "Arkavia",
-            "Blue",
-            "Cookieville",
-            "Luminara",
-            "Kazooville",
-            "Egalia",
-            "Orthodoksia",
-            "Beeville",
-            "Midnight_Hills",
-            "Vortex_Heights",
-            "Spruce_Gardens_South",
-            "Rivermount",
-            "Northernlight",
-            "Pineapple_Bay",
-            "Omoshiro",
-            "Ostfjord",
-            "Melonia",
-            "Seafoam_Isles",
-            "Yellingmare",
-            "Falkenhayn",
-            "Koyo",
-            "PortUnion",
-            "Zelkland",
-            "Rondeland",
-            "Valeronne",
-            "Stellamaris",
-            "Concord",
-            "New_Worcester",
-            "Wexfordale",
-            "Aquor",
-            "Vatnaland",
-            "Amberia",
-            "Administra",
-            "traffic_signs",
-            "aloquin"
-    );
+    private static final Essentials essentials = new Essentials();
+    private static final List<String> DEFAULT_WARP_OF_THE_DAY_WARPS = essentials
+            .getWarps().getList().stream()
+            .filter(w -> !w.matches("^\\..*|(?i)^.*spawn$"))
+            .toList();
     private static final ZoneId DEFAULT_WARP_OF_THE_DAY_ZONE = ZoneId.of("Europe/Brussels");
     private static final LocalTime WARP_OF_THE_DAY_CHANGE_TIME = LocalTime.of(11, 0);
     private static final DateTimeFormatter NEXT_CHANGE_FORMAT = DateTimeFormatter.ofPattern("MMM d, HH:mm");
