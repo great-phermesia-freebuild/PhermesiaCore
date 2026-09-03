@@ -143,7 +143,6 @@ public final class HelpModule implements PluginModule, Listener, CommandExecutor
             case 12 -> runCommand(player, "unfreeze");
             case 13 -> runCommand(player, "tmenu");
             case 14 -> runCommand(player, "buffs");
-            case 15 -> runCommand(player, "//typereplace");
             default -> playClick(player, 0.75f);
         }
     }
@@ -310,7 +309,6 @@ public final class HelpModule implements PluginModule, Listener, CommandExecutor
         inventory.setItem(12, shortcut(Material.REDSTONE_TORCH, "Unfreeze", "/unfreeze", "Return your block updates to normal."));
         inventory.setItem(13, shortcut(Material.RECOVERY_COMPASS, "Tool Menu", "/tmenu", "Invisible item frames, barriers, and more."));
         inventory.setItem(14, shortcut(Material.POTION, "Buffs", "/buffs", "Open the potion effects menu."));
-        inventory.setItem(15, shortcut(Material.STONECUTTER, "Type Replace", "//typereplace", "Replace matching block states inside your WorldEdit selection.", true));
         addBackAndClose(inventory);
         player.openInventory(inventory);
         playOpen(player);
@@ -324,7 +322,7 @@ public final class HelpModule implements PluginModule, Listener, CommandExecutor
         List<Component> lore = builderOnly
                 ? List.of(
                         Component.text(description, NamedTextColor.GRAY),
-                        Component.text("Only Builders can use this.", NamedTextColor.RED),
+                        Component.text("Only Builders and above can use this.", NamedTextColor.RED),
                         Component.text("Click to run " + command + ".", NamedTextColor.YELLOW)
                 )
                 : List.of(
