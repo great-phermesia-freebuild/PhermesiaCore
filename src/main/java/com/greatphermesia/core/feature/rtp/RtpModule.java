@@ -36,11 +36,11 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
-import com.earth2me.essentials.Essentials;
+import com.earth2me.essentials.IEssentials;
 
 public final class RtpModule implements PluginModule, Listener, CommandExecutor {
 
-    private static final Essentials essentials = new Essentials();
+    private static final IEssentials essentials = (IEssentials)Bukkit.getServer().getPluginManager().getPlugin("Essentials");
     private static final List<String> DEFAULT_WARP_OF_THE_DAY_WARPS = essentials
             .getWarps().getList().stream()
             .filter(w -> !w.matches("^\\..*|(?i)^.*spawn$"))
