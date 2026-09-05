@@ -664,8 +664,8 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
         }
 
         String warpName = null;
-        Inventory topInventory = event.getView().getTopInventory();
-        if (topInventory instanceof AnvilView anvilView) {
+        InventoryView inventoryView = event.getView();
+        if (inventoryView instanceof AnvilView anvilView) {
             warpName = cleanWarpName(anvilView.getRenameText());
         }
 
@@ -710,8 +710,8 @@ public final class GadgetsModule implements PluginModule, Listener, CommandExecu
         }
 
         String timeValue = null;
-        Inventory topInventory = event.getView().getTopInventory();
-        if (topInventory instanceof AnvilView anvilView) {
+        InventoryView inventoryView = event.getView();
+        if (inventoryView instanceof AnvilView anvilView) {
             timeValue = cleanTimeValue(anvilView.getRenameText());
         }
 
